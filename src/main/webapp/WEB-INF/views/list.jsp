@@ -1,0 +1,113 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<html>
+<head>
+    <!-- Bootstrap 5 CDN -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" >
+
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+        .container-custom {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+            margin-top: 40px;
+        }
+
+        .heading {
+            background: linear-gradient(90deg, #d63384, #6f42c1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .table-custom th {
+            background: #6f42c1 !important;
+            color: white !important;
+        }
+
+        .btn-add {
+            background: #d63384;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-add:hover {
+            background: #b82a70;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container container-custom">
+
+    <div class="heading">
+        <h2>Student List</h2>
+    </div>
+
+    <div class="text-center mb-4">
+        <a href="/add" class="btn btn-add">+ Add New Student</a>
+    </div>
+	<!--a href="/students/den" class="btn btn-add">+ Add Student</a-->
+    <h4 class="text-center text-secondary mb-4">
+        Something about dev and code
+    </h4>
+
+    <!-- TABLE -->
+    <table class="table table-bordered table-striped table-hover table-custom">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Email</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <c:forEach var="s" items="${ss}">
+            <tr>
+                <td>${s.id}</td>
+                <td>${s.name}</td>
+                <td>${s.course}</td>
+                <td>${s.email}</td>
+
+                <td class="text-center">
+
+                    <a href="/edit/${s.id}" 
+                       class="btn btn-sm btn-primary me-2">
+                        Edit
+                    </a>
+
+                    <a href="/delete/${s.id}" 
+                       class="btn btn-sm btn-danger">
+                        Delete
+                    </a>
+
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>

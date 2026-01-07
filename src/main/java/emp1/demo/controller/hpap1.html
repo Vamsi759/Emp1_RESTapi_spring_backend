@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>K. Krishna Vamsi — Portfolio</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary: #0d6efd;
+            --dark: #ae9797;
+            --light-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-section .avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 10%;
+        }
+
+        h1#title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Hero / About */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image .avatar-large {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            border: 5px solid var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            background: #252525;
+            color: var(--primary);
+        }
+
+        #typing {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cursor {
+            animation: blink 0.8s infinite;
+            border-left: 2px solid white;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Projects Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            padding: 20px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .card-body h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        /* Skills Bars */
+        .skills-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .progress-bg {
+            background: #444;
+            border-radius: 10px;
+            height: 12px;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            background: var(--primary);
+            height: 100%;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 10px;
+            color: white;
+            padding-right: 5px;
+        }
+
+        /* Coding Profiles */
+        .profile-card {
+            text-align: center;
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .profile-card:hover {
+            background: #252525;
+        }
+
+        .profile-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Education Timeline */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ebox {
+            background: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background: #000;
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        /* Flexible Avatar Styling */
+        .avatar-circle,
+        .avatar-large {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Clips the image to the border radius */
+        }
+
+        .avatar-circle img,
+        .avatar-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* This is the "Automatic Sizing" secret */
+            object-position: center;
+        }
+
+        /* <a href='https://postimg.cc/6255BPD2' target='_blank'><img src='https://i.postimg.cc/63C7fJc0/Whats-App-Image-2026-01-01-at-9-38-36-PM.jpg' border='0' alt='Whats-App-Image-2026-01-01-at-9-38-36-PM'></a> */
+        /* Make the hero image container responsive */
+        .hero-image {
+            flex-shrink: 0;
+            max-width: 100%;
+        }
+
+        .avatar-large {
+            width: 250px;
+            height: 250px;
+            /* This makes it scale down on small screens */
+            max-width: 80vw;
+            max-height: 80vw;
+        }
+
+        /* Container styling */
+        .avatar-large {
+            width: 250px;
+            /* Fixed size for desktop */
+            height: 250px;
+            border-radius: 20px;
+            /* Matches your current theme */
+            border: 5px solid var(--primary);
+            overflow: hidden;
+            /* Clips the image to the border radius */
+            background: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Adds depth */
+        }
+
+        /* Image styling */
+        .avatar-large img {
+            width: 100%;
+            /* Fills the container width */
+            height: 100%;
+            /* Fills the container height */
+            object-fit: cover;
+            /* CRITICAL: Resizes without stretching */
+            object-position: top;
+            /* Ensures the face stays in view if cropped */
+            transition: transform 0.5s ease;
+            /* For the hover effect below */
+        }
+
+        /* Hover Effect */
+        .avatar-large:hover img {
+            transform: scale(1.1);
+            /* Subtle zoom on hover */
+        }
+
+        /* Responsive adjustment for Mobile */
+        @media (max-width: 768px) {
+            .avatar-large {
+                width: 200px;
+                /* Slightly smaller on phones */
+                height: 200px;
+                margin: 0 auto;
+                /* Centers it on mobile */
+            }
+        }
+
+        /* Container for the logo inside the card */
+        .profile-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            /* Centers logo and adds space below */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            /* White background makes logos pop */
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        /* Automatic image sizing */
+        .profile-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Ensures logo isn't cut off */
+        }
+
+        /* Enhancement for the profile card text */
+        .profile-card h4 {
+            margin: 10px 0;
+        }
+
+        .profile-card p b {
+            color: var(--primary);
+            /* Highlights your stats */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-section">
+            <div class="avatar-circle">KV</div>
+            <span style="font-weight: bold; font-size: 1.2rem;">K. Krishna Vamsi</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#About">About</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="#Coding">Coding</a></li>
+            <li><a href="#Education">Education</a></li>
+            <li><a href="#Contact">Contact</a></li>
+            <!-- <li><a href="#" class="btn">Resume</a></li> -->
+        </ul>
+    </nav>
+
+    <section id="About" class="hero">
+        <div class="hero-text">
+            <h1>Hi, I'm Krishna Vamsi</h1>
+            <p style="font-size: 1.5rem;">I'm a <span id="typing">Full Stack Developer</span><span
+                    class="cursor"></span></p>
+            <p class="text-secondary">
+                Innovative thinker with strong analytical skills. I am an <b>engineering graduate</b> and a passionate
+                <b>coder</b> skilled in Spring Boot, PostgreSQL, Java, C++, React and Problem-Solving using DSA.
+            </p>
+            <div style="margin-top: 20px; display: flex; gap: 15px;">
+                <a href="mailto:vkrishnavamsi7@gmail.com" class="btn">Hire Me</a>
+                <a href="https://github.com/Vamsi759" class="btn" style="background: #333;">GitHub</a>
+            </div>
+        </div>
+        <!-- <div class="avatar-large">
+            <img src="https://i.postimg.cc/63C7fJc0/Whats-App-Image-2026-01-01-at-9-38-36-PM.jpg" alt="Krishna Vamsi">
+        </div> -->
+    </section>
+
+    <section id="Projects">
+        <h1 id="title">My Projects</h1>
+        <p>A selection of my technical work spanning backend systems and hardware integration.</p>
+        <!--div class="grid">
+
+            
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>Student Management System</h4>
+                     <p class="text-secondary">Spring Boot • JPA •
+                        PostgreSQL --</p>
+                        <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">Built full CRUD REST APIs using Spring Boot</p>
+                        <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">Implemented validations & global exception handling</p>
+                        <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">Designed React UI for student registration</p>
+                        <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">Tested APIs using Postman ,Integrated PostgreSQL & wrote SQL scripts</p>
+                
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4>Shopping Cart (C++)</h4>
+                    <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">C++ • DSA</p>
+                    <p class="text-secondary">System optimized using efficient data structures for high-performance item
+                        management.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4>Pen Plotting</h4>
+                    <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">Arduino • GRBL</p>
+                    <p class="text-secondary">Hardware and firmware implementation for automated precision drawing.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4>Portfolio Website</h4>
+                    <p class="text-secondary" style="font-size: 0.8rem; margin-bottom: 10px;">HTML • CSS • JS</p>
+                    <p class="text-secondary">A fully responsive modern design to showcase professional achievements.
+                    </p>
+                </div>
+            </div>
+        </div-->
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Student Management System</h4>
+                    <p class="text-secondary"
+                        style="font-size: 0.8rem; font-weight: bold; color: var(--primary); margin-bottom: 10px;">
+                        React • Spring Boot • JPA • PostgreSQL
+                    </p>
+                    <ul class="text-secondary" style="font-size: 0.8rem; padding-left: 15px; margin: 0;">
+                        <li>Built full CRUD REST APIs using Spring Boot</li>
+                        <li>Implemented validations & global exception handling</li>
+                        <li>Designed React UI for student registration</li>
+                        <li>Tested APIs using Postman & wrote SQL scripts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>AI ChatBot</h4>
+                    <p class="text-secondary"
+                        style="font-size: 0.8rem; font-weight: bold; color: var(--primary); margin-bottom: 10px;">
+                        React • Spring Boot • OpenAI • PostgreSQL
+                    </p>
+                    <ul class="text-secondary" style="font-size: 0.8rem; padding-left: 15px; margin: 0;">
+                        <li>Implemented AI messaging interface with history</li>
+                        <li>Designed backend endpoints for chat storage</li>
+                        <li>Integrated OpenAI API for intelligent responses</li>
+                        <li>Built responsive UI using React hooks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>Pen Plotter Machine</h4>
+                    <p class="text-secondary"
+                        style="font-size: 0.8rem; font-weight: bold; color: var(--primary); margin-bottom: 10px;">
+                        Arduino • GRBL • Inkscape • IoT
+                    </p>
+                    <ul class="text-secondary" style="font-size: 0.8rem; padding-left: 15px; margin: 0;">
+                        <li>Automated image-to-plot conversion process</li>
+                        <li>Controlled servo/stepper motors via Arduino</li>
+                        <li>Configured GRBL firmware for precision drawing</li>
+                        <li>Integrated hardware with software G-code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Skills">
+        <h1 id="title">My Skills</h1>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h3>Languages</h3>
+                <div class="skill-item">Java <div class="progress-bg">
+                        <div class="progress-fill" style="width: 85%;">85%</div>
+                    </div>
+                </div>
+                <div class="skill-item">C++ <div class="progress-bg">
+                        <div class="progress-fill" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+                <div class="skill-item">SQL <div class="progress-bg">
+                        <div class="progress-fill" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                <div class="skill-item">Python <div class="progress-bg">
+                        <div class="progress-fill" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">JavaScript <div class="progress-bg">
+                        <div class="progress-fill" style="width: 85%;">85%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Frameworks & Tech</h3>
+                <div class="skill-item">Spring Boot <div class="progress-bg">
+                        <div class="progress-fill" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+                <div class="skill-item">PostgreSQL <div class="progress-bg">
+                        <div class="progress-fill" style="width: 70%;">70%</div>
+                    </div>
+                </div>
+                <div class="skill-item">Web (HTML-5/CSS-3) <div class="progress-bg">
+                        <div class="progress-fill" style="width: 85%;">85%</div>
+                    </div>
+                </div>
+                <div class="skill-item">Bootstrap<div class="progress-bg">
+                        <div class="progress-fill" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                 <div class="skill-item">React<div class="progress-bg">
+                        <div class="progress-fill" style="width: 70%;">70%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Coding">
+        <h1 id="title">Coding Profiles</h1>
+        <div class="grid">
+            <!-- <div class="profile-card">
+                <i class="fa-solid fa-code"></i>
+                <h4>LeetCode</h4>
+                <p>Solving DSA Challenges</p>
+                <p>250+ Problems Solved</p>
+                <a href="https://leetcode.com/u/krishna_vamsi_katta/" target="_blank" class="btn">View Profile</a>
+            </div>
+            <div class="profile-card">
+                <i class="fa-solid fa-code"></i>
+                <h4>Geeks For Geeks</h4>
+                <p>Technical Practice</p>
+                <p>500+ Problems Solved</p>
+                <a href="https://www.geeksforgeeks.org/profile/kirshna_vamsi?tab=activity" target="_blank"
+                    class="btn">View Profile</a>
+            </div>
+            <div class="profile-card">
+                <i class="fa-brands fa-hackerrank"></i>
+                <h4>HackerRank</h4>
+                <p>Skill Verification</p>
+                <p>5 Star in Problem Solving</p>
+                <a href="https://www.hackerrank.com/profile/20MH1A4920" target="_blank" class="btn">View Profile</a>
+            </div> -->
+            <div class="grid">
+                <div class="profile-card">
+                    <div class="profile-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                            alt="LeetCode">
+                    </div>
+                    <h4>LeetCode</h4>
+                    <p>Solving DSA Challenges</p>
+                    <p><b>250+ Problems Solved</b></p>
+                    <a href="https://leetcode.com/u/krishna_vamsi_katta/" target="_blank" class="btn">View Profile</a>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-logo">
+                        <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" alt="GFG">
+                    </div>
+                    <h4>Geeks For Geeks</h4>
+                    <p>Technical Practice</p>
+                    <p><b>500+ Problems Solved</b></p>
+                    <a href="https://www.geeksforgeeks.org/profile/kirshna_vamsi?tab=activity" target="_blank"
+                        class="btn">View Profile</a>
+                </div>
+
+                <div class="profile-card">
+                    <div class="profile-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/HackerRank_Icon-1000px.png"
+                            alt="HackerRank">
+                    </div>
+                    <h4>HackerRank</h4>
+                    <p>Skill Verification</p>
+                    <p><b>5 Star in Problem Solving</b></p>
+                    <a href="https://www.hackerrank.com/profile/20MH1A4920" target="_blank" class="btn">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Education">
+        <h1 id="title">Education</h1>
+        <div class="edu-grid">
+            <div class="ebox">
+                <h3>B.Tech in CSE</h3>
+                <p>Aditya College of Engineering (2020–2024)</p>
+                <p class="text-secondary small">Focused on Software Development and DSA.</p>
+            </div>
+            <div class="ebox">
+                <h3>Intermediate</h3>
+                <p>Aditya Junior College (2018–2020)</p>
+                <p class="text-secondary small">MPC Stream</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="Contact">
+        <div>
+            <h3>Contact Me</h3>
+            <a href="mailto:vkrishnavamsi7@gmail.com" class="footer-link">📧 vkrishnavamsi7@gmail.com</a>
+            <a href="tel:+919951645207" class="footer-link">📞 +91 9951645207</a>
+            <p class="text-secondary">📍 Andhra Pradesh, India</p>
+        </div>
+        <div>
+            <h3>Social</h3>
+            <a href="https://www.linkedin.com/in/krishna-vamsi-katta-0717ab247/" class="footer-link">LinkedIn</a>
+            <a href="https://github.com/Vamsi759" class="footer-link">GitHub</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+
+
+

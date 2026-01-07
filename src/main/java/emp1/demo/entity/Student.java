@@ -1,0 +1,64 @@
+package emp1.demo.entity;
+//package com.example.student.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String course;
+    private String email;
+    public Student() {
+        // required by Hibernate
+    }
+
+    public Student(String name) {
+        this.name=name;
+    }
+    
+    public Student(Long id, String name) {  // ❌ only parameterized constructor
+        this.id = id;
+        this.name = name;
+    }
+    
+    public Student(Object object, String name2, String course2, String email2) {
+		// TODO Auto-generated constructor stub
+    	id=(Long)object;name=name2;course=course2;
+    	email=email2;
+    	
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+}
