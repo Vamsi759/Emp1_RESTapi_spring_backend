@@ -15,9 +15,7 @@ public class Student {
     private String name;
     private String course;
     private String email;
-    public Student() {
-        // required by Hibernate
-    }
+    
 
     public Student(String name) {
         this.name=name;
