@@ -17,9 +17,7 @@ public class StudentDto {
     	course=course2;email=email2;
 	}
 	
-	public StudentDto() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Long getId() {
 		return id;
