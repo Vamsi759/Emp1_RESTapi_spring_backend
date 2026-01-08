@@ -14,7 +14,7 @@ import emp1.demo.service.StudentService;
 
 @RestController 
 @RequestMapping("/api/students")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://emp1-frontend-react.vercel.app")
 public class StudentRestcontoller {
 
     @Autowired
